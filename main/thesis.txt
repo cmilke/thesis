@@ -1,0 +1,21 @@
+Creating New SiD Models (METHOD)
+    
+    Updating the Old SiD Model
+        
+        The ultimate goal of this study was to analyze new modification to the SiD model. However, before we could look into the future of the SiD, we had to take it out of the past. Prior to my modifications, the most up-to-date simulation model of the SiD was the SiDloi3 model. However, the SiDloi3 model was written in 2011, and numerous changes to the SiD's engineering design had been made since, rendering SiDloi3 outdated. Thus, the first order of business was to ensure that the simulation model was matched to the current engineering design; at least, the aspects of it we were concerned with. As discussed in the introduction, this study focused exclusively on the interaction region of the detector, and as such only the interaction region was fully updated. But even with the scope of the project restricted, the update was no simple task.
+
+        The most pressing change by far was the realignment of the BeamCal. In the SiDloi3 model, the BeamCal was designed to be concentric about the simulation space's z-axis (figure \beamcal_zaligned). The most recent engineering designs however (provided by Thomas Markievicz), place the BeamCal concentric about the outgoing beampipe (figure \beamcal_outaligned). In general, modifications to the SiD model are made by editing a specific xml file titled "compact.xml". The modified compact is then run through a program called GeomConverter, which is an extension of the Java based LCSim (Linear Collider Simulator) framework. However, the GeomConverter package did not support off-center alignments of any detector elements, requiring significant modifications be made to the source code (the full source changelog can be found in appendix 1A). Once the changes were made, and the BeamCal appropriately realigned to be concentric about the outgoing beampipe, it was a simple matter to similarly realign the BeamCal's associated masks: the ForwardLowZ mask (figure \forwardlowz), and the ForwardM1 mask (figure \forwardm1). 
+
+        Hypothetically speaking, once the BeamCal and its masks were properly realigned, the study could have proceeded forward without any further updates to the SiD model. Unfortunately, usage of CERN ROOT's gdml viewer revealed that the realignment of the BeamCal caused it to collide with a support tube structure (figure \support_tube). It was quickly apparent that altering the support tube structure alone would be useless, as this would result in even more collisions (figure \support_tube2). Thus, additional modifications to the detector elements surounding the support (notably the Ecal, Hcal, and Muon Detector) were needed. While these modifications were in line with Markievicz's engineering designs, they only constitute partial modifications to the non-interaction region elements.
+
+        In addition to the BeamCal, it was also decided that the LumiCal (figure 1.6) should also be updated. The reason for this is that the LumiCal places constraints on the angles at which particles can hit the BeamCal (figure 1.7). Updating the LumiCal brought about a problem of its own though. In the most recent engineering designs, the LumiCal was moved closer to the interaction point, such that the outermost layer of the SiTracker Endcap surrounded it (figure 1.8). While this poses no realistic problem, the GEANT4 simulation software would not tolerate it, as this placed the LumiCal within a virtual boundry called the "Tracking Volume". In short, the Tracking Volume causes all elements inside it to store significantly more simulation information. Because the LumiCal is a calorimeter, and therefore induces a large shower of particles, storing the additional information from the Tracking Volume caused excessive RAM usage, making simulations impossible. As a result, we were forced to move the outermost layer of the SiTracker endcap closer to the interaction point, so that it no longer surrounded the LumiCal. Upon finishing this adjustment though, the SiD forward region was fully up to date, and new design decisions could be implemented (the full geometry changelog can be found in appendix 1B).
+
+
+    Experimenting with New SiD Models
+
+        
+
+
+
+
+Analyzing the Physics of the New SiD Models
