@@ -4,6 +4,7 @@
 \usepackage{cite}
 \usepackage{titlesec}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage[margin=1in]{geometry}
 \usepackage[doublespacing]{setspace}
 
@@ -146,7 +147,27 @@
     \chapter{Analysis}
         \section{L star}
             \subsection{Beam Calorimeter}
-                As visible in figure [l* beamcal total compare plot], moving the BeamCal further away from the IP only has a marginal effect, except at the innermost radii. Looking at figures [l* geom compare plot] and [l* inst compare], it is apparent that this is a geometric effect. At a further distance from the IP, the inner radii of the BeamCal corresponds to a lower angle in theta. This means that a number of very low angle electrons are hitting the BeamCal at the 4.1 meter L* position, which missed the BeamCal at the 3.5 meter L*.
+                \begin{figure}[H] 
+                    \includegraphics[width=\textwidth]{RadialEfficiencyFP_total}
+                    \centering
+                    \caption{Comparison of L* on BeamCal performance}
+                    \label{lstar_beamcal_total}
+                \end{figure}
+                \begin{figure}[H]
+                    \centering
+                    \begin{minipage}{0.4\textwidth}
+                        \includegraphics[width=\textwidth]{RadialEfficiencyFP_instrumental}
+                        \caption{Instrumental}
+                        \label{lstar_beamcal_inst}
+                    \end{minipage}
+                    \begin{minipage}{0.4\textwidth}
+                        \includegraphics[width=\textwidth]{RadialEfficiencyFP_geometric}
+                        \caption{Geometric}
+                        \label{lstar_beamcal_geom}
+                    \end{minipage}
+                \end{figure}
+
+                As visible in figure \ref{lstar_beamcal_total}, moving the BeamCal further away from the IP only has a marginal effect, except at the innermost radii. Looking at figures [l* geom compare plot] and [l* inst compare], it is apparent that this is a geometric effect. At a further distance from the IP, the inner radii of the BeamCal corresponds to a lower angle in theta. This means that a number of very low angle electrons are hitting the BeamCal at the 4.1 meter L* position, which missed the BeamCal at the 3.5 meter L*.
                 
             \subsection{Vertex Detector} 
                 The effect of the BeamCal movement on the Vertex Detector Occupancy is virtually non-existant. Figures [basic occ plots of both archs barrel] show that the Vertex Barrel has no noticeable change. Figures [basic plots for ecap] show that there is a very slight change to the endcap, noteably that the 4.1 meter L* has slightly higher occupancy than the 3.5 meter L*. The reason for the change is likely the same as that which increased tagging efficiency in the BeamCal. That is, the BeamCal has slightly better angular coverage for low theta particles. This would result in more background particles hitting the BeamCal at low radii, causing slightly higher albedo levels.
