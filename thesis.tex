@@ -170,7 +170,33 @@
                 As visible in figure \ref{lstar_beamcal_total}, moving the BeamCal further away from the IP only has a marginal effect, except at the innermost radii. Looking at figures [l* geom compare plot] and [l* inst compare], it is apparent that this is a geometric effect. At a further distance from the IP, the inner radii of the BeamCal corresponds to a lower angle in theta. This means that a number of very low angle electrons are hitting the BeamCal at the 4.1 meter L* position, which missed the BeamCal at the 3.5 meter L*.
                 
             \subsection{Vertex Detector} 
-                The effect of the BeamCal movement on the Vertex Detector Occupancy is virtually non-existant. Figures [basic occ plots of both archs barrel] show that the Vertex Barrel has no noticeable change. Figures [basic plots for ecap] show that there is a very slight change to the endcap, noteably that the 4.1 meter L* has slightly higher occupancy than the 3.5 meter L*. The reason for the change is likely the same as that which increased tagging efficiency in the BeamCal. That is, the BeamCal has slightly better angular coverage for low theta particles. This would result in more background particles hitting the BeamCal at low radii, causing slightly higher albedo levels.
+                \begin{figure}[H]
+                    \centering
+                    \begin{minipage}{0.4\textwidth}
+                        \includegraphics[width=\textwidth]{Voccupancy_sidloi3_IR_realign_preqd0shift_5B_ps30_1510212229_brl}
+                        \caption{Vertex Barrel 3.5 meter L*}
+                        \label{lstar_vertex_brl_3.5}
+                    \end{minipage}
+                    \begin{minipage}{0.4\textwidth}
+                        \includegraphics[width=\textwidth]{Voccupancy_sidloi3_IR_realign_5B_ps30_1510211229_brl}
+                        \caption{Vertex Barrel 4.1 meter L*}
+                        \label{lstar_vertex_brl_4.1}
+                    \end{minipage}
+                \end{figure}
+                \begin{figure}[H]
+                    \centering
+                    \begin{minipage}{0.4\textwidth}
+                        \includegraphics[width=\textwidth]{Voccupancy_sidloi3_IR_realign_preqd0shift_5B_ps30_1510212229_ecp}
+                        \caption{Vertex Endcap 3.5 meter L*}
+                        \label{lstar_vertex_ecp_3.5}
+                    \end{minipage}
+                    \begin{minipage}{0.4\textwidth}
+                        \includegraphics[width=\textwidth]{Voccupancy_sidloi3_IR_realign_5B_ps30_1510211229_ecp}
+                        \caption{Vertex Endcap 4.1 meter L*}
+                        \label{lstar_vertex_ecp_4.1}
+                    \end{minipage}
+                \end{figure}
+                The effect of the BeamCal movement on the Vertex Detector Occupancy is virtually non-existant. Figures \ref{lstar_vertex_brl_3.5} and \ref{lstar_vertex_brl_4.1} show that the Vertex Barrel has no noticeable change. Figures \ref{lstar_vertex_ecp_3.5} and \ref{lstar_vertex_ecp_4.1} show that there is a very slight change to the endcap, noteably that the 4.1 meter L* has slightly higher occupancy than the 3.5 meter L*. The reason for the change is likely the same as that which increased tagging efficiency in the BeamCal. That is, the BeamCal has slightly better angular coverage for low theta particles. This would result in more background particles hitting the BeamCal at low radii, causing slightly higher albedo levels.
 
             \subsection{Conclusion}
                 As stated previously, the decision to move the L* from 3.5 to 4.1 meters has already been finalized, so these studies are unable to influence it. Luckily however, it seems that the change only improved matters. The BeamCal now operates more efficiently at low radii, and the Vertex Detector, while not performing any better, does not really perform any worse either.
@@ -181,11 +207,23 @@
                 As expected, removing part of the BeamCal causes massive drops in performance near the removed region, as visible in figure [you know the drill]. Additionally, the performance drop increases with the more liberal circular cutout. Outside of the inner radii, the performance is unchanged, as was also expected.
                 
             \subsection{Vertex Detector} 
-                The backscatter effect from the BeamCal into the Vertex Detector is dependent on there being something for the particles to scatter backwards off of. It makes perfect sense then that removing material from the BeamCal would decrease the occupancy in the Vertex Detector, visible in figure [yadda yadda], with the circle cutout resulting in even lower occupancy levels.
+                \begin{figure}[H] 
+                    \includegraphics[width=\textwidth]{VradOccupancy_plug_brl}
+                    \centering
+                    \caption{Vertex Barrel Plug Region}
+                    \label{plug_vertex_brl}
+                \end{figure}
+                \begin{figure}[H] 
+                    \includegraphics[width=\textwidth]{VradOccupancy_plug_ecp}
+                    \centering
+                    \caption{Vertex Endcap Plug Region}
+                    \label{plug_vertex_ecp}
+                \end{figure}
+                The backscatter effect from the BeamCal into the Vertex Detector is dependent on there being something for the particles to scatter backwards off of. It makes perfect sense then, that removing material from the BeamCal would decrease the occupancy in the Vertex Detector, visible in figures \ref{plug_vertex_brl} and \ref{plug_vertex_ecp}, with the circle cutout resulting in even lower occupancy levels.
                 
 
             \subsection{Conclusion} 
-                 It would certainly prove beneficial to the Vertex Detector's performance if part of the plug region can be removed, but whether or not the losses to the BeamCal are tolerable is still an open question. The events used to analyze them in this study are, as mentioned previously, not real physical events. The event type that this algorithm really needs to be used for is the gamma-gamma to hadron event type. At the time of writing this, studies on the gamma-gamma to hadron events have begun, but are many months from completion. A more thorough decision on the plug region will be made once the plug region's effect on gamma-gamma to hadron tagging is studied.
+                 It would certainly prove beneficial to the Vertex Detector's performance if part of the plug region could be removed, but whether or not the losses to the BeamCal are tolerable is still an open question. The events used to analyze them in this study are, as mentioned previously, not real physical events. The event type that this algorithm really needs to be used for is the gamma-gamma to hadron event type. At the time of writing this, studies on the gamma-gamma to hadron events have begun, but are many months from completion. A more thorough decision on the plug region will be made once the plug region's effect on gamma-gamma to hadron tagging is studied.
 
         
         \section{Anti-DiD}
