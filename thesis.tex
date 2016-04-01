@@ -204,7 +204,26 @@
 
         \section{Plug Region}
             \subsection{Beam Calorimeter}
-                As expected, removing part of the BeamCal causes massive drops in performance near the removed region, as visible in figure [you know the drill]. Additionally, the performance drop increases with the more liberal circular cutout. Outside of the inner radii, the performance is unchanged, as was also expected.
+                \begin{figure}[H] 
+                    \includegraphics[width=\textwidth]{RadialEfficiency_total_geom}
+                    \centering
+                    \caption{Comparison of L* on BeamCal performance}
+                    \label{geom_beamcal_total}
+                \end{figure}
+                \begin{figure}[H]
+                    \centering
+                    \begin{minipage}{0.4\textwidth}
+                        \includegraphics[width=\textwidth]{RadialEfficiency_instrumental_geom}
+                        \caption{Instrumental}
+                        \label{geom_beamcal_inst}
+                    \end{minipage}
+                    \begin{minipage}{0.4\textwidth}
+                        \includegraphics[width=\textwidth]{RadialEfficiency_geometric_geom}
+                        \caption{Geometric}
+                        \label{geom_beamcal_geom}
+                    \end{minipage}
+                \end{figure}
+                As expected, removing part of the BeamCal causes massive drops in performance near the removed region, as visible in figure \ref{geom_beamcal_total}. Additionally, the performance drop increases with the more liberal circular cutout. Outside of the inner radii, the performance is unchanged, as was also expected. The effect on the BeamCal is entirely geometric(\ref{geom_beamcal_geom}), with no significant effects on the instrumental efficiency (\ref{geom_beamcal_inst}).
                 
             \subsection{Vertex Detector} 
                 \begin{figure}[H] 
