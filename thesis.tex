@@ -17,7 +17,8 @@
 
 \graphicspath{ {images/} }
 
-\titleformat{\chapter}[display] {\normalfont\bfseries}{}{0pt}{\LARGE}
+\titlespacing*{\chapter}{0pt}{0pt}{20pt}
+\titleformat{\chapter}[display] {\normalfont\bfseries}{}{0pt}{\centering \LARGE}
 
 \begin{document}
 	\begin{titlepage}
@@ -150,24 +151,23 @@
                 \begin{figure}[H] 
                     \includegraphics[width=\textwidth]{RadialEfficiencyFP_total}
                     \centering
-                    \caption{Comparison of L* on BeamCal performance}
+                    \caption{}
                     \label{lstar_beamcal_total}
                 \end{figure}
                 \begin{figure}[H]
+                    \includegraphics[width=\textwidth]{RadialEfficiencyFP_instrumental}
                     \centering
-                    \begin{minipage}{0.4\textwidth}
-                        \includegraphics[width=\textwidth]{RadialEfficiencyFP_instrumental}
-                        \caption{Instrumental}
-                        \label{lstar_beamcal_inst}
-                    \end{minipage}
-                    \begin{minipage}{0.4\textwidth}
-                        \includegraphics[width=\textwidth]{RadialEfficiencyFP_geometric}
-                        \caption{Geometric}
-                        \label{lstar_beamcal_geom}
-                    \end{minipage}
+                    \caption{}
+                    \label{lstar_beamcal_inst}
+                \end{figure}
+                \begin{figure}[H]
+                    \includegraphics[width=\textwidth]{RadialEfficiencyFP_geometric}
+                    \centering
+                    \caption{}
+                    \label{lstar_beamcal_geom}
                 \end{figure}
 
-                As visible in figure \ref{lstar_beamcal_total}, moving the BeamCal further away from the IP only has a marginal effect, except at the innermost radii. Looking at figures [l* geom compare plot] and [l* inst compare], it is apparent that this is a geometric effect. At a further distance from the IP, the inner radii of the BeamCal corresponds to a lower angle in theta. This means that a number of very low angle electrons are hitting the BeamCal at the 4.1 meter L* position, which missed the BeamCal at the 3.5 meter L*.
+                As visible in figure \ref{lstar_beamcal_total}, moving the BeamCal further away from the IP only has a marginal effect, except at the innermost radii. Looking at figures \ref{lstar_beamcal_inst} and \ref{lstar_beamcal_geom}, it is apparent that this is a geometric effect. At a further distance from the IP, the inner radii of the BeamCal corresponds to a lower angle in theta. This means that a number of very low angle electrons are hitting the BeamCal at the 4.1 meter L* position, which missed the BeamCal at the 3.5 meter L*.
                 
             \subsection{Vertex Detector} 
                 \begin{figure}[H]
@@ -207,22 +207,22 @@
                 \begin{figure}[H] 
                     \includegraphics[width=\textwidth]{RadialEfficiency_total_geom}
                     \centering
-                    \caption{Comparison of L* on BeamCal performance}
+                    \caption{}
                     \label{geom_beamcal_total}
                 \end{figure}
                 \begin{figure}[H]
+                    \includegraphics[width=\textwidth]{RadialEfficiency_instrumental_geom}
                     \centering
-                    \begin{minipage}{0.4\textwidth}
-                        \includegraphics[width=\textwidth]{RadialEfficiency_instrumental_geom}
-                        \caption{Instrumental}
-                        \label{geom_beamcal_inst}
-                    \end{minipage}
-                    \begin{minipage}{0.4\textwidth}
-                        \includegraphics[width=\textwidth]{RadialEfficiency_geometric_geom}
-                        \caption{Geometric}
-                        \label{geom_beamcal_geom}
-                    \end{minipage}
+                    \caption{}
+                    \label{geom_beamcal_inst}
                 \end{figure}
+                \begin{figure}[H]
+                    \includegraphics[width=\textwidth]{RadialEfficiency_geometric_geom}
+                    \centering
+                    \caption{}
+                    \label{geom_beamcal_geom}
+                \end{figure}
+
                 As expected, removing part of the BeamCal causes massive drops in performance near the removed region, as visible in figure \ref{geom_beamcal_total}. Additionally, the performance drop increases with the more liberal circular cutout. Outside of the inner radii, the performance is unchanged, as was also expected. The effect on the BeamCal is entirely geometric(\ref{geom_beamcal_geom}), with no significant effects on the instrumental efficiency (\ref{geom_beamcal_inst}).
                 
             \subsection{Vertex Detector} 
@@ -247,10 +247,41 @@
         
         \section{Anti-DiD}
             \subsection{Beam Calorimeter}
-                As visible in figure [yawn], the anti-DiD field improves the BeamCal's efficiency by a noticeable margin at all radii. The reason for this is likely that the anti-DiD field is funneling a substantial portion of the background energy into the outgoing beampipe. Withou this background energy hitting the BeamCal, the tagging algorithm is able to more easily identify signal events.
+                \begin{figure}[H] 
+                    \includegraphics[width=\textwidth]{RadialEfficiency_total_did}
+                    \centering
+                    \caption{}
+                    \label{did_beamcal_total}
+                \end{figure}
+                \begin{figure}[H]
+                    \includegraphics[width=\textwidth]{RadialEfficiency_instrumental_did}
+                    \centering
+                    \caption{}
+                    \label{did_beamcal_inst}
+                \end{figure}
+                \begin{figure}[H]
+                    \includegraphics[width=\textwidth]{RadialEfficiency_geometric_did}
+                    \centering
+                    \caption{}
+                    \label{did_beamcal_geom}
+                \end{figure}
+
+                As visible in figure \ref{did_beamcal_total}, the anti-DiD field improves the BeamCal's efficiency by a noticeable margin at all radii. The reason for this is likely that the anti-DiD field is funneling a substantial portion of the background energy into the outgoing beampipe. Without this background energy hitting the BeamCal, the tagging algorithm is able to more easily identify signal events.
 
             \subsection{Vertex Detector}
-                Figure [etc] shows that the anti-DiD field reduces the occupancy levels in both the barrel and endcap of the Vertex Detector. Just as with the BeamCal tagging efficiency, this improvement results from background particles being sent down the outgoing beampipe. Because a large number of particles now miss the BeamCal, the albedo is reduced, improving occupancy.
+                \begin{figure}[H] 
+                    \includegraphics[width=\textwidth]{VradOccupancy_base_brl}
+                    \centering
+                    \caption{Vertex Barrel Plug Region}
+                    \label{did_vertex_brl}
+                \end{figure}
+                \begin{figure}[H] 
+                    \includegraphics[width=\textwidth]{VradOccupancy_base_ecp}
+                    \centering
+                    \caption{Vertex Endcap Plug Region}
+                    \label{did_vertex_ecp}
+                \end{figure}
+                Figures \ref{did_vertex_brl} and \ref{did_vertex_ecp} shows that the anti-DiD field reduces the occupancy levels in both the barrel and endcap of the Vertex Detector. Just as with the BeamCal tagging efficiency, this improvement results from background particles being sent down the outgoing beampipe. Because a large number of particles now miss the BeamCal, the albedo is reduced, improving occupancy.
 
             \subsection{Conclusion}
                 The anti-DiD field certainly accomplishes its intended goal, by improving performance in both the BeamCal and Vertex Detector. However, the BeamCal and Vertex Detector are not the only considerations for the anti-DiD field. While the anti-Did may be intended for only these two detectors, the field can cause problems with various other parts of the SiD overall. Moreover, the anti-DiD is very expensive, costing on the order of millions of dollars (US). For these reasons, the marginal improvements to the BeamCal and Vertex detector are not worth the costs of installing the anti-DiD field. The conclusion of this study and the SiD collaboration as a whole then is that the anti-Did field will \textbf{not} be included in the final design of the SiD.
