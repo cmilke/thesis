@@ -5,6 +5,7 @@
 \usepackage{titlesec}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage[toc,page]{appendix}
 \usepackage[margin=1in]{geometry}
 \usepackage[doublespacing]{setspace}
 
@@ -27,6 +28,8 @@
 
     \chapter{ Background }
         \section{ The International Linear Collider }
+            %in: None
+            %out: Size of ILC, e+/- collider, collision energy, uses, ILC is precise b/c of parton distributions 
             \subsection{ What is the ILC and Why Does it Need to Exist? }
                 \begin{figure}[h] 
                     \includegraphics[width=\textwidth]{ilcoverview}
@@ -39,8 +42,9 @@
 
                 All the physics processes mentioned, and indeed most other physics processes studied in particle colliders, are studied by reconstructing the paths and energies of particles as they traverse the various detector elements surrounding the particle collision point. The reconstructed paths are then compared to the initial state of the particles that went into the collision. The key statement here is that the comparison is to the particles' \textit{initial} state. While the positions and energies of the protons that are colliding may be well known, the same cannot be said for the individual quarks and gluons the proton is made up of. All that can be done for the constituent particles is to make estimates on where they \textit{might} be based a probabilistic distribution, known as a Parton Distribution Function (PDF). As a result, almost all studies done at the LHC (or any other hadron collider for that matter) face a constant source of significant systematic error on all results it produces. The ILC eliminates this issue entirely by colliding only electrons and positrons, both elementary particles that have no need of PDFs. As a result, the ILC can perform physics studies at a much more precise level, providing details on physics that the LHC cannot.
 
-
-            \section{An Overview of the Vertex Detector and BeamCal}
+            %in: ILC context
+            %out: tons of info on vertex and beamcal, albedo conflict, geom change list
+            \subsection{An Overview of the Vertex Detector and BeamCal}
                 \begin{figure}[h] 
                     \includegraphics[width=\textwidth]{sid_zoom1}
                     \centering
@@ -50,6 +54,8 @@
                     \label{sid_zoom1}
                 \end{figure}
 
+                %in: What the ILC is
+                %out: What is IP, what is SiD, size of SiD, location of Vertex and BeamCal,
                 At the crossing of the positron and electron beams is the ILC's interaction point (IP). At any given time the IP can be surrounded by one of two exchangeable detectors: the Large International Detector (ILD) or the Silicon Detector (SiD). The focus in this study will be on the latter of the two. The SiD is an array of trackers and calorimeters over 12 meters long and over 16 meters in diameter. Of the numerous detectors it consists of, the two relevant to this study are the Vertex Detector and Beam Calorimeter (BeamCal). Both detectors are located extremely close to the IP of the SiD, in an area known as the Interaction Region (IR). 
                 
                 \begin{figure}[h]
@@ -66,19 +72,30 @@
                     \end{minipage}
                 \end{figure}
                 
-                The Vertex Detector, with a radius of only 6.3 centimeters and a length of 5.2 centimeters, immediately surrounds the IP. The BeamCal (or rather BeamCals, as the entire SiD is mirrored) is a fair distance away from the IP, at 32.65 meters. But with a radius of 14 centimeters, it closely hugs both the incoming and outgoing beam pipes, visible as holes in figure \ref{beamcal}. The locations of the detectors provide unique advantages to each. For the Vertex Detector, surrounding the IP so closely means that it is often the first to detect particles, and is able to detect them before the solenoid's magnetic field has had much chance to deflect them. The BeamCal meanwhile sits in such a far away location, with such a small radius, that the only particles which hit it are those with extremely low transverse momenta. Generally the only particles with such a low trajectory angle are those which have had minimal interaction with other particles, and have thus retained most of their energy. As a result, the BeamCal is hit by some of the highest energy particles produced by the electron/positron collision. Besides their locations though, the Vertex Detector and BeamCal function in almost diametrically opposed ways.
+                %in: context of vertex & beamcal 
+                %out: location of Vertex and BeamCal, size of vertex, size of BeamCal, use of Vertex, advantages of vertex, beamcal only hit with lowpt particles, lowpt particles are often high energy, beamcal gets a lot of bgd energy, use of Vertex, advantages of vertex, beamcal only hit with lowpt particles, lowpt particles are often high energy, beamcal gets a lot of bgd energy
+                The Vertex Detector, with a radius of only 6.3 centimeters and a length of 5.2 centimeters, immediately surrounds the IP. The BeamCal (or rather BeamCals, as the entire SiD is mirrored) is a fair distance away from the IP, at 32.65 meters. But with a radius of 14 centimeters, it closely hugs both the incoming and outgoing beam pipes, visible as holes in figure \ref{beamcal}. The locations of the detectors provide unique advantages to each. For the Vertex Detector, surrounding the IP so closely means that it is often the first to detect particles, and, due its small size, is also able to use some of the most advanced electronics to perform this task. The BeamCal meanwhile sits in such a far away location, with such a small radius, that the only particles which hit it are those with extremely low transverse momenta. Generally the only particles with such a low trajectory angle are those which have had minimal interaction with other particles, and have thus retained most of their energy. As a result, the BeamCal is hit by some of the highest energy particles produced by the electron/positron collision. Aside from their near-beampipe locations though, the Vertex Detector and BeamCal function in almost diametrically opposed ways.
 
-                The Vertex Detector is a tracker-style detector, designed to track the positions of particles as they move through its layers. By identifying hits from a particle across the Vertex Detector's layers, the particle's trajectory can be determined. The Vertex Detector is built to interact with the particle as little as possible, so as not to interfere with the particle's trajectory. Moreover, it is critically important that the occupancy (the number of particles hitting the detector) be kept as low as possible. If the occupancy is too high, then it becomes difficult or impossible to effectively reconstruct particle trajectories. The BeamCal, on the other hand, is designed primarily for calorimetry, determining the energy a particle holds (though it does some position tracking as well). This is accomplished by interspersing silicon detector plates with large amounts of tungsten. The tungsten scatters and absorbs the energy of any particles hitting it, eventually stopping them completely. Energy is then measured by looking at how many layers of tungsten a particle was able to traverse before being stopped. This method of measuring energy is also the basis of a conflict between the Vertex Detector and BeamCal. Because the BeamCal effectively acts as a wall to all incoming particles, some of the particles actually ricochet backwards off of it, in an effect called \textit{albedo}. These showers of albedo particles rebounding off the BeamCal then proceed to fly back towards the IP, and into the Vertex Detector.
+                %in: what vertex & beamcal are
+                %out: how vertex works, importance of low vertex occupancy, how beamcal works, intro to albedo problem
+                The Vertex Detector is a tracker-style detector, designed to track the positions of particles as they move through its layers. By identifying hits from a particle across the Vertex Detector's layers, the particle's trajectory can be determined. The Vertex Detector is built to interact with the particle as little as possible, so as not to interfere with the particle's trajectory. Moreover, it is critically important that the occupancy (the number of particles hitting the detector) be kept as low as possible. If the occupancy is too high, then it becomes difficult or impossible to effectively reconstruct particle trajectories. The BeamCal, on the other hand, is designed primarily for calorimetry, determining the energy of a particle (in addition to some minor position tracking). This is accomplished by interspersing silicon detector plates with large amounts of tungsten. The tungsten scatters and absorbs the energy of any particles hitting it, eventually stopping them completely. Energy is then measured by looking at how many layers of tungsten a particle was able to traverse before being stopped. This method of measuring energy is also the basis of a conflict between the Vertex Detector and BeamCal. Because the BeamCal effectively acts as a wall to all incoming particles, some of the particles actually ricochet backwards off of it, in an effect called \textit{albedo}. These showers of albedo particles rebounding off the BeamCal then proceed to fly back towards the IP, and into the Vertex Detector.
                 
-                The effect requires a careful balancing act. On one end of the scale, albedo increases the occupancy in the Vertex Detector, and should thus be kept to a minimum. On the other end, the BeamCal is a crucial component of the SiD, necessary for low PT (low transverse momentum) particle tagging and beam parameter checking. The BeamCal cannot be removed, but its presence negatively effects the performance of the Vertex Detector. This study aims to research the effects of three independent changes to the architecture of the Interaction Region on this balance, analyzing how each of the changes alters the effectiveness of the Vertex Detector and BeamCal. The first change is with regard to the proximity of the BeamCal to the IP, the second studies the effects of cutting out part of the BeamCal, and the third determines the usefulness of a specialized magnetic field known as the anti-DiD.
+                %in: what is albedo, vertex, and beamcal
+                %out: conflict between beamcal and vertex, list three changes
+                The effect requires a careful balancing act. On one end of the scale, albedo increases the occupancy in the Vertex Detector, and should thus be kept to a minimum. On the other end, the BeamCal is a crucial component of the SiD, necessary for low transverse momentum particle tagging and beam parameter checking. The BeamCal cannot be removed, but its presence negatively effects the performance of the Vertex Detector. This study aims to research the effects of three independent changes to the architecture of the Interaction Region on this balance, analyzing how each of the changes alters the effectiveness of the Vertex Detector and BeamCal. The first change is with regard to the proximity of the BeamCal to the IP, the second studies the effects of cutting out part of the BeamCal, and the third determines the usefulness of a specialized magnetic field known as the anti-DiD.
+
 
 
         \section{Modifications to the SiD}
-            \subsection{center}
+            %in: what is sid, IP, beamcal
+            %out: what is L*, relavence to beamcal
+            \subsection{L Star}
 
                 The L* of the SiD is a term which refers to the distance between the Interaction Point and the beginning of the cryostat. The most recent technical design report for the SiD specified that for a number of reasons the cryostat needed to be be moved farther away from the Interaction Point, from 3.5 meters to 4.1 meters. The relevance of this change to detector studies is that the BeamCal is attached to the cryostat, so moving the cryostat also means moving the BeamCal (from 2.95 meters to 3.265 meters). This decision has already been made, and so the studies in the analysis section are only to see what the effect of this change is; the results of this study will not affect the design decision.
 
 
+            %in: context of beamcal, albedo
+            %out: energy distribution on beamcal, three plug designs, why designs might help and hurt
             \subsection{Plug Region}
                 \begin{figure}[h]
                     \centering
@@ -99,16 +116,23 @@
                     \end{minipage}
                 \end{figure}
 
-                As discussed previously, the BeamCal is hit with a very large amount of energy. The overwhelming majority of the energy is deposited in the central area of the BeamCal, between the two beam pipes, as apparent in figure [make a figure for this plz]. This central location is referred to as the plug region. Removing all or part of the plug region thus has the potential to reduce the energy incident on the face of the BeamCal, and consequently reduce the albedo effect into the Vertex Detector. There are three proposed designs for the plug region (shown in figures \ref{beamcal_plug}, \ref{beamcal_wedge}, and \ref{beamcal_circle}) which remove progressively more detector material. In theory, these designs should provide lower occupancy in the vertex detector, but the cost to the BeamCal is not yet known.
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=\textwidth]{beamcal_energy_xy}
+                    \caption{Energy Deposited on BeamCal from Pairbackground event}
+                    \label{beamcal_energy_xy}
+                \end{figure}
+
+                As discussed previously, the BeamCal is hit with a very large amount of energy. The overwhelming majority of the energy is deposited in the central area of the BeamCal, between the two beam pipes, as apparent in figure \ref{beamcal_energy_xy}. This central location is referred to as the plug region. Removing all or part of the plug region thus has the potential to reduce the energy incident on the face of the BeamCal, and consequently reduce the albedo effect into the Vertex Detector. There are three proposed designs for the plug region (shown in figures \ref{beamcal_plug}, \ref{beamcal_wedge}, and \ref{beamcal_circle}) which remove progressively more detector material. In theory, these designs should provide lower occupancy in the vertex detector, but the cost to the BeamCal is not yet known.
 
 
+            %in: albedo, vertex, beamcal
+            %out: what is anti-did, why we want it/don't want it, Tom's study
             \subsection{Anti-Did Magnetic Field}
-
                 In response to the problem of albedo from the BeamCal into the Vertex Detector, an engineering team proposed the use of a magnetic field known as the DiD, as well as its counterpart, the anti-DiD. The idea of the anti-Did is to redirect low-energy background particles such that they are funneled into the outgoing beampipe of the BeamCal. By redirecting these particles, the particles hitting the BeamCal are reduced, which reduces the albedo into the Vertex Detector. However, the anti-DiD field is very expensive, and has the potential to cause a number of problems with physics analysis. Additionally, a study performed by Thomas Markiewicz \cite{anti-did} suggested that the anti-DiD field could actually be increasing energy deposition outside of the plug region, only causing improvement in a limited area of the detector. For these reasons, a detailed study of the effects of the anti-DiD field on the BeamCal and Vertex Detector is necessary.
 
 
-        \section{Goals of the Study}
-
+        \section{Goals of the Study} %TODO: move this to abstract
             The objective of this study will be to update the Interaction Region of the SiD to the most modern and up-to-date specifications, directly using the designs of the SiD's top engineer \cite{excel}. Following from this, the three aforementioned changes will be implemented one at a time, analyzing the effects on the performance of the Vertex Detector and Beam Calorimeter. 
 
 
@@ -118,6 +142,8 @@
     \chapter{Creating New SiD Models}
         \section{Updating the Old SiD Model}
             
+            %in: what is sid, what are we doing (geom changes, vertex/beamcal study)
+            %out: need to update sidloi3
             The ultimate goal of this study was to analyze new modification to the SiD model. However, before we could look into the future of the SiD, we had to take it out of the past. Prior to my modifications, the most up-to-date simulation model of the SiD was the SiDloi3 model. However, the SiDloi3 model was written in 2011, and numerous changes to the SiD's engineering design had been made since, rendering SiDloi3 outdated. Thus, the first order of business was to ensure that the simulation model was matched to the current engineering design; at least, the aspects of it we were concerned with. As discussed in the introduction, this study focused exclusively on the interaction region of the detector, and as such only the interaction region was fully updated. But even with the scope of the project restricted, the update was no simple task.
 
             \begin{figure}[h] 
@@ -139,6 +165,8 @@
                 \label{beamcal_masks}
             \end{figure}
 
+            %in: beamcal
+            %out: beamcal alignment, geometry creation process, necessity of code altering
             The most pressing change by far was the realignment of the BeamCal. In the SiDloi3 model, the BeamCal was designed to be concentric about the simulation space's z-axis (figure \ref{beamcal_zaxis}). The most recent engineering designs however (provided by Thomas Markievicz), place the BeamCal concentric about the outgoing beampipe (figure \ref{beamcal_aligned}). In general, modifications to the SiD model are made by editing a specific xml file titled "compact.xml". The modified compact is then run through a program called GeomConverter, which is an extension of the Java based LCSim (Linear Collider Simulator) framework. However, the GeomConverter package did not support off-center alignments of any detector elements, requiring significant modifications be made to the source code (the full source changelog can be found in appendix 1A). Once the changes were made, and the BeamCal appropriately realigned to be concentric about the outgoing beampipe, it was a simple matter to similarly realign the BeamCal's associated masks: the ForwardLowZ mask, and the ForwardM1 mask, both visible in figure \ref{beamcal_masks}). 
 
             \begin{figure}[h] 
@@ -311,6 +339,155 @@
 
             \subsection{Conclusion}
                 The anti-DiD field certainly accomplishes its intended goal, by improving performance in both the BeamCal and Vertex Detector. However, the BeamCal and Vertex Detector are not the only considerations for the anti-DiD field. While the anti-Did may be intended for only these two detectors, the field can cause problems with various other parts of the SiD overall. Moreover, the anti-DiD is very expensive, costing on the order of millions of dollars (US). For these reasons, the marginal improvements to the BeamCal and Vertex detector are not worth the costs of installing the anti-DiD field. The conclusion of this study and the SiD collaboration as a whole then is that the anti-Did field will \textbf{not} be included in the final design of the SiD.
+
+
+
+
+
+    \appendix
+    \section{GeomConverter Source Code Changelog} \label{geom_changes}
+        all files changed are located in:
+        lcsim/detector-framework/src/main/java/org/lcsim/geometry/compact/converter/lcdd/
+
+
+        ForwardDetector.java:
+            This is the file that determines the BeamCal's geometry, as well as the
+            geometry of the polyethylene mask in front of the BeamCal.
+            
+            It was modified in order to allow the BeamCal and its mask to be alligned
+            to the outgoing beampipe.
+            
+            The rotation itself was straightforward, requiring only a few lines of
+            code towards the end to A) rotate the BeamCal by half the crossing angle
+            (0.014 radians, so the BeamCal was rotated by 0.007 radians), and B) 
+            shift the BeamCal in x by [zposition*tan(crossing_angle/2)]. The
+            shift in x was neccessary because the rotation is about the BeamCal's
+            local center, not the global origin. 
+
+            The catch was the two holes in the BeamCal which needed to be subtracted
+            from the volume for the beampipes. This subtraction is done not just in
+            every layer, but in every slice of material in every layer. The result is
+            effectively the same body of code in three locations to perform the
+            rotated subtraction properly (one for the main beamcal, one for each
+            layer, and one for each slice). 
+
+
+        util/PhysVol.java:
+            This is the class which is actually interpreted by the program as
+            belonging to the geometry. When a geometric object in the code is generated, the
+            last step is to create a PhysVol object with the geometric object, which
+            is then added to the "mother volume" PhysVol object.
+
+            This was modified merely to add two convenience functions. There was
+            already a function (setZ) built into it that allowed one to easily set the
+            z-position of a PhysVol object. I simply added two more that did the same
+            thing for x and y. The function for x (setX) was used for the shift
+            mentioned in the ForwardDetector.java, and the setY function was just for
+            completeness.
+
+
+        PolyconeSupport.java:
+            This is the class which converts, among many other things, the large
+            support tube which encompasses the BeamCal and mask.
+
+            It was modified to allow it to be alligned to the outgoing beampipe.
+            Oddly, while the BeamCal requires both a rotation and x position be set,
+            the PolyconeSupport only requires rotation, as its axis of rotation
+            appears to be the origin.
+
+            While the functionality for alignment is still present in the code, later discussion
+            revealed that the support tube should remain alligned to the z-axis, so
+            the functionality is not currently being used.
+
+
+        CylindricalEndcapCalorimeter.java:
+            This is the class which converts the LumiCal.
+
+            It was modified to allow alignment to the outgoing beampipe. Like the
+            BeamCal, it requires a rotation and shift-in-x parameter to be aligned
+            correctly. However, the hole in the center of the LumiCal is generated
+            through a different method than the BeamCal holes, which means it does not
+            require any special attention.
+
+
+    \section{compact.xml Changelog} \label{compact_changes}
+        All numbers in units of mm
+
+
+        Changes made in order to comply with Tom Markiewicz's engineering excel file:
+
+            EcalBarrel inner radius: 1265 -> 1270
+            EcalEndcap inner radius: 200 -> 216
+            EcalEndcap outer radius: 1294.1 -> 1250
+
+            HcalBarrel inner radius: 1419 -> 1410
+            HcalBarrel z from origin to edge: 3018 -> 2940
+
+            HcalEndcap inner radius: 200 -> 216
+            HcalEndcap outer radius: 1458.7 -> 1402
+            HcalEndcap z-min: 1805 -> 1820
+
+            MuonEndcap zmin: 3028 -> 3030
+            MuonEndcap rmin: 200 -> 211
+
+            LumiCal zmin: 1680 -> 1557
+
+            BeamCal outer_r: 129.6 -> 159
+            BeamCal inner_z: 2950 -> 3265
+            BeamCal slice material Tungsten density 24 thickness: 2.71 -> 2.5
+            
+            BeamCal support tube rmin: 155 -> 194
+            BeamCal support tube rmax: 195 -> 211
+            BeamCal support tube zmin: 1820 -> 1700
+            BeamCal support tube zmax: 3235 -> 6773
+
+            Forward & Backward M1 support:
+                initial: rmin 80 -> 70, rmax 155 -> 100, z 1820 -> 3135
+                final:   rmin 137.8 -> 169, rmax 155 -> 194, z 3135 -> 3125
+
+            ForwardLowZ:
+                outer_r: 123.9 -> 159
+                inner_z: 2820 -> 3135
+
+
+
+        changes made to allign the BeamCal, mask, and LumiCal to the outgoing beampipe
+
+            Added "rotation" parameter to LumiCal to allow arbitrary rotation
+
+            Added "allign_to_pipeout" boolean parameter to BeamCal. 
+                Does NOT allow arbitrary rotation. The BeamCal is either concentric 
+                about the z-axis, or the outgoing beampipe. This is because, no matter
+                how the BeamCal is rotated, the two holes going through it MUST align 
+                to the beampipes. Allowing arbitrary rotation, while possible, would
+                have been much more complicated to implement, as it would require both
+                the arbitrary angle and beam crossing to be taken into account for 
+                these holes.
+
+            Added "allign_to_pipeout" parameter to 'ForwardLowZ' (Polyethylene mask).
+                Functions same as the above 
+
+            All BeamPipe inserts (what goes in the BeamCal holes):
+                zhalf (half its length): 92.7 -> 87.5
+                z: 3042.7 -> 3352.5
+                x(+&-): 21.3 -> 23.47
+
+
+
+        changes made to avoid collisions with other parts of the detector
+
+            SiTrackerEndcap, layer 4, innermost ring radius: 256.716 -> 258.716
+                changed to avoid collision with the LumiCal
+
+            BeamPipeLiner: modified to stop before the lumical instead of the tracking
+                region
+
+            Forward and Backward Vacuum: adjusted z position to avoid LumiCal
+
+            VXDcableZbackwardOuter: adjusted z position to avoid LumiCal
+            VXDcableZbackwardInner: adjusted z position to avoid LumiCal
+            VXDcableZforwardOuter: adjusted z position to avoid LumiCal
+            VXDcableZforwardInner: adjusted z position to avoid LumiCal
 
 
 
