@@ -12,29 +12,63 @@
 
 
 
-\title{Physics BA Thesis}
-\author{Christopher Don Milke}
-\date{\today}
-
-
 \graphicspath{ {images/} }
+\widowpenalty=500
+\clubpenalty=500
 
 \titlespacing*{\chapter}{0pt}{0pt}{20pt}
 \titleformat{\chapter}[display] {\normalfont\bfseries}{}{0pt}{\centering \LARGE}
 
 \begin{document}
-	\begin{titlepage}
-        \large University of California \\ Santa Cruz
+	\begin{titlepage} \begin{singlespace}
+        \begin{center} \begin{large}
+            UNIVERSITY of CALIFORNIA \\ SANTA CRUZ
 
-        \large \textbf{something something vertex and beamcal}
+            \vspace{\baselineskip}
+
+            \textbf{INTERNATIONAL LINEAR COLLIDER: \\ PERFORMANCE OF THE BEAM CALORIMETER AND SIVERTEX DETECTOR  IN LIGHT OF ARCHITECTURAL CHANGES TO THE SID}
+
+            \vspace{\baselineskip}
+
+            A thesis sumbmitted in partial satisfaction of the \\ requirements for the degree of
+
+            \vspace{\baselineskip}
+
+            BACHELOR OF SCIENCE
+
+            \vspace{\baselineskip}
+
+            in
+
+            \vspace{\baselineskip}
+
+            PHYSICS
+
+            \vspace{\baselineskip}
+
+            by
+
+            \vspace{\baselineskip}
+
+            \textbf{Christopher D. Milke}
+
+            \vspace{\baselineskip}
+
+            \today
+
+            \vspace*{\fill}
+
+            \end{large}
+
+            The thesis of Christopher Milke is approved by:
+        \end{center}
+
+        Bruce is there any chance I can get a latex form of this cover page? Setting up the signature lines looks to be quite the pain...
+	\end{singlespace} \end{titlepage}
 
 
-
-
-	\end{titlepage}
-
-    \newpage
-    \begin{center}
+    %copyright
+    \newpage \begin{center} \pagenumbering{roman}
         \vspace*{\fill}
         Copyright \textcopyright by
 
@@ -42,12 +76,61 @@
 
         2016
         \vspace*{\fill}
-    \end{center}
+    \end{center} \newpage
+
+
+    %abstract
+    \addcontentsline{toc}{chapter}{Abstract}
+        \begin{center} \LARGE \textbf{Abstract} \end{center}
+
+        In ILC development, there are a number of possible alterations to the forward region of the SiD. Using a combination of Geant4, ROOT, and LCSIM, these alterations will be studied in their effect on the Beam Calorimeter's electron tagging efficiency, and on the occupancy of the SiVertex detector (both barrel and endcap).
+
+        The first alteration considered is the adjustment of the length of the L* from 3.5 meters to 4.2 meters. In regards to my study, this adjustment translates to shifting the BeamCal 70 cm further away from the interaction point. This change was found to increase the BeamCal's efficiency by roughly 5\% in the inner radii, with no noticeable change at outer radii. In the Vertex Detector, it was found that the albedo picked up by the Vertex Detector remained unchaged overall. The movement of the BeamCal merely altered the deflection angle off of its face, slightly altering (but not reducing) the occupancy distribution within the Vertex Detector.
+
+        The second alteration is how the $e^+/e^-$ particle beam pipes pass through the BeamCal. There are three considered methods for doing this: a seperate hole in the BeamCal for each pipe, a single wedge shaped hole which removes the material between the beam pipes, and a single large hole which circumscribes the two beampipes. BeamCal efficiency at low radii were severely impacted as as more material was removed. Conversely, Vertex detector occupancy improved with the more drastic cuts, but only by marginal amounts.
+
+        The final alteration is in whether or not there should be an anti-DiD field within the SiD. The addition of the anti-DiD field improved both BeamCal efficiency and Vertex Detector occupancy. However, the improvements were small, and not considered worth the investment of installing an anti-DiD field.
     \newpage
+
 
     \tableofcontents
 
+
+    %dedication and acknowledgements
+    \newpage \vspace*{\fill}
+        \addcontentsline{toc}{chapter}{Dedication}
+        \begin{center} \begin{large}
+            To my parents, 
+            
+            without whose unconditional support and love 
+            
+            I would never be where I am today.
+
+            \vspace{40mm}
+
+            And to the best team of undergraduate physicists
+            
+            I could ever have asked for.
+
+            The ILC project is in your hands now.
+            
+            I know you will all see it through to success 
+        \end{large} \end{center}
+    \vspace*{\fill} \newpage \vspace*{\fill}
+        \addcontentsline{toc}{chapter}{Acknowledgements}
+        \begin{center} \begin{large}
+            \large \textbf{Acknowledgements} \vspace{\baselineskip}
+
+            I would like to first and foremost thank my advisor, professor Bruce Schumm, who was a constant source of guidance through this project in particular, and my career as a physicist in general. I want to thank Jan Strube of PNNL for helping me find my way through the labrynth of code frameworks and programs and servers that constituted this study. Additionally, I wish to thank the entirety of the SiD Collaboration, which provided a wealth of information and set this project into motion. I want to thank Jason Nielson for his work as an administrator of our ATLAS server. And finally, I want to thank Luc D'Hauthuille, who spent many long hours working alongside me to crank out the results of this study.
+        \end{large} \end{center}
+    \vspace*{\fill} \newpage
+
+
+
+
+
     \chapter{ Background }
+        \pagenumbering{arabic} \setcounter{page}{1}
         \section{ The International Linear Collider }
             %in: None
             %out: Size of ILC, e+/- collider, collision energy, uses, ILC is precise b/c of parton distributions 
