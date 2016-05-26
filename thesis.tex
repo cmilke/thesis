@@ -9,6 +9,7 @@
 \usepackage[toc,page]{appendix}
 \usepackage[margin=1in]{geometry}
 \usepackage[doublespacing]{setspace}
+\usepackage[font=scriptsize]{caption}
 
 
 
@@ -27,7 +28,8 @@
             \vspace{\baselineskip}
 
             \textbf{INTERNATIONAL LINEAR COLLIDER: \\
-                PERFORMANCE OF THE BEAM CALORIMETER AND SIVERTEX DETECTOR \\
+                PERFORMANCE OF THE BEAM CALORIMETER \\ 
+                AND SI-VERTEX DETECTOR \\
                 IN LIGHT OF ARCHITECTURAL CHANGES TO THE SID}
 
             \vspace{\baselineskip}
@@ -78,7 +80,7 @@
     \addcontentsline{toc}{chapter}{Abstract}
         \begin{center} \LARGE \textbf{Abstract} \end{center}
 
-        In ILC development, there are a number of possible alternatives to the forward region of the SiD. Using a combination of Geant4, ROOT, and LCSIM, these alterations will be studied in their effect on the Beam Calorimeter detector subsystem's electron tagging efficiency, and on the occupancy of the SiVertex detector subsystem (both barrel and endcap).
+        In ILC development, there are a number of possible alternatives to the forward region of the SiD. Using a combination of Geant4, ROOT, and LCSIM, these alterations will be studied in their effect on the Beam Calorimeter subsystem's electron tagging efficiency, and on the occupancy of the SiVertex detector subsystem (both barrel and endcap).
 
         The first alteration considered is the adjustment of the length of the L* (the distance from the final focusing magnet to the interaction point) from 3.5 meters to 4.2 meters. In regards to my study, this adjustment translates to shifting the BeamCal 70 cm further away from the interaction point. This change was found to increase the BeamCal's efficiency by roughly 5\% in the inner radii, with no noticeable change at outer radii. In the Vertex Detector, it was found that the albedo picked up by the Vertex Detector remained unchanged overall. The movement of the BeamCal merely altered the deflection angle off of its face, slightly altering (but not reducing) the occupancy distribution within the Vertex Detector.
 
@@ -139,7 +141,9 @@
 
                 The International Linear Collider (ILC) is a 30 kilometer long linear particle accelerator \cite{specs} which will collide electrons and positrons together at 500 GeV energies. It will primarily be used for studying the properties of the Higgs Boson, attempting to find new dimensions, and trying to discover Supersymetric (SUSY) particles. All three of these are already being pursued by the much more powerful Large Hadron Collider (LHC), which begs the question of why the ILC is needed. The answer is that, while the LHC is significantly more powerful, the ILC will be significantly more precise. This is because the LHC is, as the name would imply, a hadron collider. In the simplest case, the LHC performs proton-proton collisions. However, protons are not elementary particles. They consist of three quarks and any number of gluons holding those quarks together. A collision between two protons then is actually a collision between six quarks and several gluons. This is a problem for physics studies in particle accelerators, because of something known as a parton distribution function \cite{parton}. To understand why, a brief explanation of how one conducts particle accelerator physics studies is in order.
 
-                All the physics processes mentioned, and indeed most other physics processes studied in particle colliders, are studied by reconstructing the paths and energies of particles as they traverse the various detector elements surrounding the particle collision point. The reconstructed paths are then often compared to the initial state of the particles that went into the collision. The key statement here is that the comparison is to the particles' \textit{initial} state. While the positions and energies of the protons that are colliding may be well known, the same cannot be said for the individual quarks and gluons the proton is made up of. All that can be done for the constituent particles is to make estimates on where they \textit{might} be based on a probabilistic distribution, known as a Parton Distribution Function (PDF). As a result, almost all studies done at the LHC face a constant source of significant uncertainty on a number of results they might produce. The ILC eliminates this issue entirely, by colliding only electrons and positrons. These are both elementary particles, and hence their initial states are precisely known, eliminating the need for PDFs. As a result, the ILC can perform physics studies at a much more precise level, providing details on physics that the LHC cannot.
+                All the physics processes mentioned, and indeed most other physics processes studied in particle colliders, are studied by reconstructing the paths and energies of particles as they traverse the various detector elements surrounding the particle collision point. The reconstructed paths are then often compared to the initial state of the particles that went into the collision. The key statement here is that the comparison is to the particles' \textit{initial} state. While the positions and energies of the protons that are colliding may be well known, the same cannot be said for the individual quarks and gluons the proton is made up of. All that can be done for the constituent particles is to make estimates on where they \textit{might} be based on a probabilistic distribution, known as a Parton Distribution Function (PDF). As a result, many precision studies done at the LHC face a constant source of significant uncertainty on a number of results they might produce. The ILC eliminates this issue entirely, by colliding only electrons and positrons. These are both elementary particles, and hence their initial states are precisely known, eliminating the need for PDFs. 
+
+                To be more specific, the ILC collides a 10.8 Mega-watt electron beam with a 10.8 Mega-watt positron beam, with a center-of-mass energy of 500 GeVs and a peak luminosity of $ 2 * 10^{34} cm^{-2}s^{-1} $. The collision of the beams is not continuous, but rather comes in 5 Hz pulses. Each pulse delivers a train of bunch crossings. A bunch crossing is 3.2 nano-Coloumbs worth of electrons and positrons colliding at once, and a nominal train is 2,625 bunch crossings. At the point of collision, the electron and positron beams will be focused to a size of 640 nm by 5.7 nm, crossing at an angle of 14 miliradians \cite{beam_specs}. All told, the result of these parameters will result in the ILC's abitility to perform physics studies at a much more precise level, providing details on physics that the LHC cannot.
 
             %in: ILC context
             %out: tons of info on vertex and beamcal, albedo conflict, geom change list
@@ -161,29 +165,30 @@
                     \centering
                     \begin{minipage}{0.4\textwidth}
                         \includegraphics[width=\textwidth]{vertex}
-                        \caption{Vertex Detector}
+                        \caption{Vertex Detector - The flat disks at either end are the Endcaps,
+                                 and the concentric cylinders in the center comprise the Barrel.}
                         \label{fig__vertex}
                     \end{minipage}
                     \begin{minipage}{0.4\textwidth}
                         \includegraphics[width=\textwidth]{beamcal_full}
-                        \caption{Beam Calorimeter}
+                        \caption{Beam Calorimeter - Note that in this figure the BeamCal is centered around the outgoing beam pipe. }
                         \label{fig__beamcal}
                     \end{minipage}
                 \end{figure}
                 
                 %in: context of vertex & beamcal 
                 %out: location of Vertex and BeamCal, size of vertex, size of BeamCal, use of Vertex, advantages of vertex, beamcal only hit with lowpt particles, lowpt particles are often high energy, beamcal gets a lot of bgd energy, use of Vertex, advantages of vertex, beamcal only hit with lowpt particles, lowpt particles are often high energy, beamcal gets a lot of bgd energy
-                The Vertex Detector, with a radius of only 6.3 centimeters and a length of 5.2 centimeters, immediately surrounds the IP. The BeamCal (or rather pair of BeamCals, as the entire SiD is mirrored across the IP) is a fair distance away from the IP, at 32.65 meters. But with a radius of 14 centimeters, it closely hugs both the incoming and outgoing beam pipes, visible as holes in figure \ref{fig__beamcal}. The locations of the detectors provide unique advantages to each. For the Vertex Detector, surrounding the IP so closely means that it is often the first to detect particles, using some of the most advanced position-sensing detectors to perform this task. The BeamCal meanwhile sits in such a far away location, with such a small radius, that the only particles to hit it are those with extremely low transverse momenta. Often, the only beam particles with such a low trajectory angle are those which have had minimal interaction with other particles, and have thus retained most of their energy. As a result, the BeamCal is hit by some of the highest energy particles produced by the electron/positron collision. Aside from their near-beam pipe locations though, the Vertex Detector and BeamCal function in almost diametrically opposed ways.
+                The Vertex Detector, with a length of 36 centimeters and an inner radius of only 16 milimeters, immediately surrounds the IP. The BeamCal (or rather pair of BeamCals, as the entire SiD is mirrored across the IP) is a fair distance away from the IP, at 3.265 meters. But with a radius of 14 centimeters, it closely hugs both the incoming and outgoing beam pipes, visible as holes in figure \ref{fig__beamcal}. The locations of the detectors provide unique advantages to each. For the Vertex Detector, surrounding the IP so closely means that it is able to provide the most precise constraints on the path of charged particles, using some of the most advanced position-sensing detectors to perform this task. The BeamCal meanwhile sits in such a far away location, with such a small radius, that the only particles to hit it are those with an extremely small angle relative to the beamline. Often, the only beam particles with such a low trajectory angle are those which have had minimal interaction with other particles, and have thus retained most of their energy. As a result, the BeamCal is hit by some of the highest energy particles produced by the electron/positron collision. Aside from their near-beam pipe locations though, the Vertex Detector and BeamCal function in almost diametrically opposed ways.
 
                 %in: what vertex & beamcal are
                 %out: how vertex works, importance of low vertex occupancy, how beamcal works, intro to albedo problem
-                The Vertex Detector is a tracker-style detector, designed to track the positions of particles as they move through its layers. By identifying hits from a particle across the Vertex Detector's layers, the particle's trajectory can be determined. Broken into two distinct parts, the barrel and the endcap, it is able to attain complete coverage of the IP at all angles. The Vertex Detector is built to interact with the particle as little as possible, so as not to deflect the particle's trajectory. Moreover, the Vertex Detector uses very small pixels, on the order of microns, in order achieve the highest possible position resolution. In order to maintain this resolution though, it is critically important that the occupancy (the number of particles hitting the detector) be kept as low as possible. As the occupancy increases, so too does the density of pixels that were hit. And as the hit pixel density increases, it becomes increasingly difficult to identify individual paritcles, making it much harder to effectively reconstruct particle trajectories.
+                The Vertex Detector is a tracker-style detector, designed to track the positions of individual particles as they move through its layers. By identifying hits from a particle across the Vertex Detector's layers, the particle's trajectory can be determined. Broken into two distinct parts, the barrel and the endcap, it is able to attain complete coverage of the IP at all angles. The Vertex Detector is built to interact with the particle as little as possible, so as not to deflect the particle's trajectory. Moreover, the Vertex Detector uses very small pixels, on the order of tens of microns, in order achieve the highest possible position resolution. In order to maintain this resolution though, it is critically important that the occupancy (the fraction of channels hit over a specific collection time) be kept as low as possible. As the occupancy increases, so too does the density of pixels that were hit. And as the hit pixel density increases, it becomes increasingly difficult to identify individual paritcles, making it much harder to effectively reconstruct particle trajectories.
                 
-                The BeamCal, on the other hand, is designed primarily for calorimetry, determining the energy of a particle (in addition to some crude position tracking). This is accomplished by interspersing silicon detector plates with large amounts of tungsten. The tungsten scatters and absorbs the energy of any particles hitting it, eventually stopping them completely. Energy is then measured by looking at how many particles pass through the silicon layers between the tungsten plates as the scattering shower develops. This method of measuring energy is also the basis of a conflict between the Vertex Detector and BeamCal. Because the BeamCal effectively acts as a wall to all incoming particles, some of the particles produced when the beams collide actually eminate backwards from it, an effect called \textit{albedo}. These showers of albedo particles exuding off the BeamCal then proceed to fly back towards the IP, with many of them reaching the layers of the Vertex Detector.
+                The BeamCal, on the other hand, is designed in part to perform some crude position tracking, but is primarily meant for calorimetry, the process of determining the energy of a particle by completely absorbing it. This is accomplished by interspersing silicon detector plates with large amounts of tungsten. The tungsten scatters and absorbs the energy of any particles hitting it, eventually stopping them completely. Energy is then measured by looking at how many particles pass through the silicon layers between the tungsten plates as the scattering shower develops. This method of measuring energy is also the basis of a conflict between the Vertex Detector and BeamCal. Because the BeamCal effectively acts as a wall to all incoming particles, some of the particles produced when the beams collide actually eminate backwards from it, an effect called \textit{albedo}. These showers of albedo particles exuding off the BeamCal then proceed to fly back towards the IP, with many of them reaching the layers of the Vertex Detector.
                 
                 %in: what is albedo, vertex, and beamcal
                 %out: conflict between beamcal and vertex, list three changes
-                The albedo effect requires a careful study of the balance between the Vertex and BeamCal performance. On one end of the scale, albedo increases the occupancy in the Vertex Detector, and should thus be kept to a minimum. On the other end, the BeamCal is a crucial component of the SiD, necessary for low transverse momentum particle tagging and beam parameter checking. The BeamCal cannot be removed, but its presence can negatively effect the performance of the Vertex Detector. This study aims to research the effects of three independent changes to the architecture of the Interaction Region on this balance, analyzing how each of the changes alters the effectiveness of the Vertex Detector and BeamCal. The first change is with regard to the proximity of the BeamCal to the IP, the second studies the effects of cutting out part of the BeamCal, and the third determines the usefulness of a specialized magnetic field known as the anti-DiD.
+                The consequences of the BeamCal albedo requires a careful study of the balance between the Vertex and BeamCal performance. On one end of the scale, albedo increases the occupancy in the Vertex Detector, and should thus be kept to a minimum. On the other end, the BeamCal is a crucial component of the SiD, necessary for low transverse momentum particle tagging and beam parameter checking. The BeamCal cannot be removed, but its presence can negatively effect the performance of the Vertex Detector. This study aims to research the effects of three independent changes to the architecture of the Interaction Region on this balance, analyzing how each of the changes alters the effectiveness of the Vertex Detector and BeamCal. The first change is with regard to the proximity of the BeamCal to the IP, the second studies the effects of cutting out part of the BeamCal, and the third determines the usefulness of a specialized magnetic field known as the anti-DiD.
 
 
 
@@ -192,7 +197,7 @@
             %out: what is L*, relevance to beamcal
             \subsection{L Star}
 
-                The L* of the SiD is a term which refers to the distance between the Interaction Point and the beginning of the final focussing magnet of the beamline (known as the QD0). The most recent technical design report for the SiD specified that for a number of reasons the magnet needed to be be moved farther away from the Interaction Point, from 3.5 meters to 4.1 meters. The relevance of this change to detector studies is that the BeamCal is attached to the magnet's, so moving the magnet also means moving the BeamCal (from 2.95 meters to 3.265 meters). While this decision has largely been finalized already, it is still important to study its effects, as a catastrophic performance hit could require the decision be reavaluated.
+                The L* of the SiD is a term which refers to the distance between the Interaction Point and the beginning of the final focussing magnet of the beamline (known as the QD0). The most recent technical design report for the SiD specified that, for a number of reasons, the magnet needed to be be moved farther away from the Interaction Point, from 3.5 meters to 4.1 meters. The relevance of this change to detector studies is that the BeamCal is attached to the QD0 magnet, so moving the magnet also means moving the BeamCal (from 2.95 meters to 3.265 meters). It is important to study the consequences of this change, as a catastrophic performance degradation could require the decision be reavaluated.
                 
 
             %in: context of beamcal, albedo
@@ -202,18 +207,12 @@
                     \centering
                     \begin{minipage}{0.3\textwidth}
                         \includegraphics[width=\textwidth]{beamcal_plug}
-                        %\caption{Full plug region}
-                        %\label{fig__beamcal_plug}
                     \end{minipage}
                     \begin{minipage}{0.3\textwidth}
                         \includegraphics[width=\textwidth]{beamcal_wedge}
-                        %\caption{Wedge cutout}
-                        %\label{fig__beamcal_wedge}
                     \end{minipage}
                     \begin{minipage}{0.3\textwidth}
                         \includegraphics[width=\textwidth]{beamcal_circle}
-                        %\caption{Circle cutout}
-                        %\label{fig__beamcal_circle}
                     \end{minipage}
                     \caption{Front face of the BeamCal, showing the three different plug region implementations.}
                     \label{fig__beamcal_face}
@@ -227,13 +226,13 @@
                     \label{fig__beamcal_energy_xy}
                 \end{figure}
 
-                As discussed previously, the BeamCal is hit with a very large amount of energy. The overwhelming majority of the energy is deposited in the central area of the BeamCal, between the two beam pipes, as apparent in figure \ref{fig__beamcal_energy_xy}. This central location is referred to as the plug region. Removing all or part of the plug region thus has the potential to reduce the energy incident on the face of the BeamCal, and consequently reduce the albedo effect into the Vertex Detector. There are three proposed designs for the plug region (shown in figure \ref{fig__beamcal_face}) which remove progressively more detector material. In theory, these designs should provide lower occupancy in the vertex detector. However, it will also reduce the area over which the scattered beam particles can be detected, reducing the BeamCal's performance.
+                As discussed previously, the BeamCal is hit with a very large amount of energy. The overwhelming majority of the energy is deposited in the central area of the BeamCal, between the two beam pipes, as apparent in figure \ref{fig__beamcal_energy_xy}. This central location is referred to as the plug region. Removing all or part of the plug region thus has the potential to reduce the energy incident on the face of the BeamCal, and consequently reduce the albedo effect into the Vertex Detector. There are three proposed designs for the plug region (shown in figure \ref{fig__beamcal_face}) which remove progressively more detector material. In theory, the designs with less material should provide lower occupancy in the vertex detector. However, it will also reduce the area over which the scattered beam particles can be detected, reducing the BeamCal's performance.
 
 
             %in: albedo, vertex, beamcal
             %out: what is anti-did, why we want it/don't want it, Tom's study
             \subsection{Anti-Did Magnetic Field}
-                In response to the problem of albedo from the BeamCal into the Vertex Detector, an engineering team proposed the use of a magnetic field known as the anti-DiD. The idea of the anti-DiD is to redirect low-energy background particles such that they are funneled into the outgoing beam pipe of the BeamCal. By redirecting these particles, the particles hitting the BeamCal are reduced, which reduces the albedo into the Vertex Detector. However, the anti-DiD field is very expensive, and has the potential to cause a number of problems with physics analysis. Additionally, a study performed by Thomas Markiewicz \cite{anti-did} suggested that the anti-DiD field could actually be increasing energy deposition outside of the plug region, only causing improvement in a limited area of the detector. For these reasons, a detailed study of the effects of the anti-DiD field on the BeamCal and Vertex Detector is necessary.
+                In response to the problem of albedo from the BeamCal into the Vertex Detector, an engineering team proposed the use of a magnetic field known as the anti-DiD. The idea of the anti-DiD is to redirect low-energy background particles such that they are funneled into the outgoing beam pipe of the BeamCal. By redirecting these particles, the particles hitting the BeamCal are reduced, which reduces the albedo into the Vertex Detector. However, the anti-DiD field is very expensive, with estimated costs in the millions of dollars. Additionally, a study performed by Thomas Markiewicz \cite{anti-did} suggested that the anti-DiD field could actually be increasing energy deposition outside of the plug region, only causing improvement in a limited area of the detector. For these reasons, a detailed study of the effects of the anti-DiD field on the BeamCal and Vertex Detector is necessary.
 
 
 
@@ -308,7 +307,7 @@
 
 
         \section{Beam Calorimeter}
-            The analysis of the BeamCal studies the efficiency of its signal reconstruction efficiency. It is appropriate then to provide an overview of how the reconstruction algorithm works (a more thorough discussion can be found in \cite{bogert_thesis}). The algorithm first populates the pixels of the BeamCalorimeter with the information provided by both the signal electron and the pair background lcdd files, one event at a time. It then performs a sweep across the tenth layer of the BeamCal, aggregating the pixels into clusters called 'pallets'. It selects the pallets with the top 50 highest background-subtracted energies deposited in them. The selected pallets are then 'extended' to include all pixels in the same x/y locations in layers 10 through 40, summing the raw energy of all included pixels to produce a new structure referred to as a 'cylinder'. The 50 cylinders are iterated through. If the background-subtracted energy of any of the cylinders exceeds a particular number of standard deviations of the background energy (sigma cut), then the event is deemed to contain a signal event. The sigma cut is chosen such that no more than ten percent of all events which do \textit{not} contain a signal event falesly identify a signal detection. This algorithm's efficiency in correctly identifying signal electrons, particularly as a function of radius, was then studied and compared across the range of architectural configurations, using three different measures of efficiency.
+            The analysis of the BeamCal studies the efficiency of its signal reconstruction efficiency. It is appropriate then to provide an overview of how the reconstruction algorithm works (a more thorough discussion can be found in \cite{bogert_thesis}). The algorithm first populates the pixels of the BeamCalorimeter with the information provided by both the signal electron and the pair background lcdd files, one event at a time. It then performs a sweep across the tenth layer of the BeamCal, aggregating the pixels into clusters called 'pallets'. It selects the pallets with the top 50 highest background-subtracted energies deposited in them. The selected pallets are then 'extended' to include all pixels in the same x/y locations in layers 10 through 40, summing the raw energy of all included pixels to produce a new structure referred to as a 'cylinder'. The 50 cylinders are iterated through. If the background-subtracted energy of any of the cylinders exceeds a particular number of standard deviations of the background energy (sigma cut), then the event is deemed to contain a signal event. The sigma cut is chosen such that no more than ten percent of all events that do \textit{not} contain a signal event falesly identify a signal detection. This algorithm's efficiency in correctly identifying signal electrons, particularly as a function of radius, was then studied and compared across the range of architectural configurations, using three different measures of efficiency.
 
             By measures of efficiency, I refer to both the instrumental efficiency and geometric efficiency, as well as their product, the total efficiency. Instrumental efficiency is the frequency with which the tagging algorithm correctly identifies events where the high energy electron/positron \textit{hits the BeamCal}. Conversely, geometric efficiency ignores the tagging algorithm entirely, determining only whether or not an electron/positron hit the BeamCal. The product of these two, the frequency of how often the algorithm correctly tags \textit{any} electron/positron (including those which miss the BeamCal), is referred to as the total efficiency. In the following analyses, the total efficiency of the architectures is studied, and then dissected by separately comparing the instrumental and geometric efficiencies.
 
@@ -321,71 +320,81 @@
 
                 %beamcal
                 \begin{figure}[H] 
-                    \includegraphics[width=\textwidth]{RadialEfficiencyFP_total}
+                    \includegraphics[height=.4\textheight]{RadialEfficiencyFP_total}
                     \centering
-                    \caption{}
+                    \caption{L* = 4.1 m (Sidloi3-IR\_Realign) vs L* = 3.5 m (Sidloi3-IR\_Realign\_preqd0shift). The 4.1 meter L* wins out very slightly.}
                     \label{fig__lstar_beamcal_total}
                 \end{figure}
                 \begin{figure}[H]
-                    \includegraphics[width=\textwidth]{RadialEfficiencyFP_instrumental}
+                    \includegraphics[height=.4\textheight]{RadialEfficiencyFP_instrumental}
                     \centering
-                    \caption{}
+                    \caption{L* = 4.1 m (Sidloi3-IR\_Realign) vs L* = 3.5 m (Sidloi3-IR\_Realign\_preqd0shift). Note that the two designs are almost perfectly matched. }
                     \label{fig__lstar_beamcal_inst}
                 \end{figure}
                 \begin{figure}[H]
-                    \includegraphics[width=\textwidth]{RadialEfficiencyFP_geometric}
+                    \includegraphics[height=.4\textheight]{RadialEfficiencyFP_geometric}
                     \centering
-                    \caption{}
+                    \caption{L* = 4.1 m (Sidloi3-IR\_Realign) vs L* = 3.5 m (Sidloi3-IR\_Realign\_preqd0shift). At low radii, the the 4.1 meter L* outperforms the 3.5 meter L* by a wide margin. }
                     \label{fig__lstar_beamcal_geom}
                 \end{figure}
 
-                As visible in figure \ref{fig__lstar_beamcal_total}, moving the BeamCal further away from the IP only has a marginal effect, except at the innermost radii. Looking at figures \ref{fig__lstar_beamcal_inst} and \ref{fig__lstar_beamcal_geom}, it is apparent that this is a geometric effect. At a further distance from the IP, the inner radii of the BeamCal corresponds to a lower angle in theta. This means that a number of very low angle electrons are hitting the BeamCal at the 4.1 meter L* position, which missed the BeamCal at the 3.5 meter L*, resulting in more electrons being detected.
+                As visible in figure \ref{fig__lstar_beamcal_total}, moving the BeamCal further away from the IP only has a marginal effect on the BeamCal efficiency, except at the innermost radii. Looking at figures \ref{fig__lstar_beamcal_inst} and \ref{fig__lstar_beamcal_geom}, which factorize figure \ref{fig__lstar_beamcal_total}, it is apparent that this is a geometric effect. At a further distance from the IP, the inner radii of the BeamCal corresponds to a lower angle in theta. This means that a number of very low angle electrons are hitting the BeamCal at the 4.1 meter L* position, which missed the BeamCal at the 3.5 meter L*, resulting in more electrons being detected.
                     
                 %vertex
                 \begin{figure}[H]
+                    \includegraphics[height=.4\textheight]{Voccupancy_sidloi3_IR_realign_preqd0shift_5B_ps30_1510212229_brl}
                     \centering
-                    \begin{minipage}{0.4\textwidth}
-                        \includegraphics[width=\textwidth]{Voccupancy_sidloi3_IR_realign_preqd0shift_5B_ps30_1510212229_brl}
-                        \caption{Vertex Barrel 3.5 meter L*}
-                        \label{fig__lstar_vertex_brl_3.5}
-                    \end{minipage}
-                    \begin{minipage}{0.4\textwidth}
-                        \includegraphics[width=\textwidth]{Voccupancy_sidloi3_IR_realign_5B_ps30_1510211229_brl}
-                        \caption{Vertex Barrel 4.1 meter L*}
-                        \label{fig__lstar_vertex_brl_4.1}
-                    \end{minipage}
+                    \caption{Vertex Barrel 3.5 meter L*. Note that in this and the following plot,
+                            layer 0 has much higher occupancy levels than the other layers.}
+                    \label{fig__lstar_vertex_brl_3.5}
+                \end{figure}
+                \begin{figure}[H]
+                    \includegraphics[height=.4\textheight]{Voccupancy_sidloi3_IR_realign_5B_ps30_1510211229_brl}
+                    \centering
+                    \caption{Vertex Barrel 4.1 meter L*. The occupancy levels are almost 
+                            indistinguishable from that of the previous plot, indicating 
+                            that the change in L* had almost no effect on the Vertex Barrel.}
+                    \label{fig__lstar_vertex_brl_4.1}
                 \end{figure}
                 \begin{figure}[H]
                     \centering
-                    \begin{minipage}{0.4\textwidth}
-                        \includegraphics[width=\textwidth]{Voccupancy_sidloi3_IR_realign_preqd0shift_5B_ps30_1510212229_ecp}
-                        \caption{Vertex Endcap 3.5 meter L*}
-                        \label{fig__lstar_vertex_ecp_3.5}
-                    \end{minipage}
-                    \begin{minipage}{0.4\textwidth}
-                        \includegraphics[width=\textwidth]{Voccupancy_sidloi3_IR_realign_5B_ps30_1510211229_ecp}
-                        \caption{Vertex Endcap 4.1 meter L*}
-                        \label{fig__lstar_vertex_ecp_4.1}
-                    \end{minipage}
+                    \includegraphics[height=.4\textheight]{Voccupancy_sidloi3_IR_realign_preqd0shift_5B_ps30_1510212229_ecp}
+                    \caption{Vertex Endcap 3.5 meter L*. Note that in this and the following plot,
+                            the occupancy of layer 0 is nearly identical to that of the other layers.}
+                    \label{fig__lstar_vertex_ecp_3.5}
                 \end{figure}
-                \begin{figure}[H] 
-                    \includegraphics[width=\textwidth]{VradOccupancy_Lstar_brl}
+                \begin{figure}[H]
+                    \includegraphics[height=.4\textheight]{Voccupancy_sidloi3_IR_realign_5B_ps30_1510211229_ecp}
                     \centering
-                    \caption{Vertex Barrel Plug Region}
+                    \caption{Vertex Endcap 4.1 meter L*. The occupancy of here is 
+                            marginally higher than that of the previous plot 
+                            (the average is at $0.15*10^{-3}$ pixels hit,
+                             compared to the $0.125*10^{-3}$ pixels hit for the 3.5 meter L*)}
+                    \label{fig__lstar_vertex_ecp_4.1}
+                \end{figure}
+
+                \begin{figure}[H] 
+                    \includegraphics[height=.4\textheight]{VradOccupancy_Lstar_brl}
+                    \centering
+                    \caption{L* = 4.1 m (Sidloi3-IR\_Realign) vs L* = 3.5 m (Sidloi3-IR\_Realign\_preqd0shift) 
+                                Vertex Barrel Lstar Occupancy. The occupancy is symmetric in the phi angle,
+                                and the two L* configurations show roughly even occupancy levels at all angles.}
                     \label{fig__lstar_vertex_brl}
                 \end{figure}
                 \begin{figure}[H] 
-                    \includegraphics[width=\textwidth]{VradOccupancy_Lstar_ecp}
+                    \includegraphics[height=.4\textheight]{VradOccupancy_Lstar_ecp}
                     \centering
-                    \caption{Vertex Endcap Lstar}
+                    \caption{L* = 4.1 m (Sidloi3-IR\_Realign) vs L* = 3.5 m (Sidloi3-IR\_Realign\_preqd0shift) 
+                                Vertex Endcap Lstar Occupancy. The fraction of pixels that are hit increases at inner radii.
+                                The 4.1 meter L* shows consistently higher ocupancy levels than the 3.5 meter L*, by only by small amounts. }
                     \label{fig__lstar_vertex_ecp}
                 \end{figure}
-                The effect of the BeamCal movement on the Vertex Detector Occupancy is virtually non-existant. Figures \ref{fig__lstar_vertex_brl_3.5} and \ref{fig__lstar_vertex_brl_4.1} show that the Vertex Barrel occupancy experiences no noticeable change. Figures \ref{fig__lstar_vertex_ecp_3.5} and \ref{fig__lstar_vertex_ecp_4.1} show that there is a very slight change to the endcap, notably that the 4.1 meter L* has slightly higher occupancy than the 3.5 meter L*. The reason for the change is likely the same as that which increased tagging efficiency in the BeamCal. That is, the BeamCal has slightly better angular coverage for low theta particles. This would result in more background particles hitting the BeamCal at low radii, causing slightly higher albedo levels.
+                Turning now to the Vertex Detector's relationship with the L*, it can be seen that the effect of the BeamCal movement on the Vertex Detector Occupancy is virtually non-existant. Figures \ref{fig__lstar_vertex_brl_3.5} and \ref{fig__lstar_vertex_brl_4.1} show that the Vertex Barrel occupancy experiences no noticeable change. Figures \ref{fig__lstar_vertex_ecp_3.5} and \ref{fig__lstar_vertex_ecp_4.1} show that there is a very slight change to the endcap, notably that the 4.1 meter L* has slightly higher occupancy than the 3.5 meter L*. The reason for the change is likely the same as that which increased tagging efficiency in the BeamCal. That is, the BeamCal has slightly better angular coverage for low theta particles. This would result in more background particles hitting the BeamCal at low radii, causing slightly higher albedo levels.
 
                 I would also like to take this section to note that, especially in the barrel, the occupancy levels of the various layers are always worst for the first layer (layer 0). For this reason, as discussed in section \ref{sect__analysis_vertex}, all other Vertex plots will focus exclusively on the first layer.
 
                 %conclusion
-                As stated previously, the decision to move the L* from 3.5 to 4.1 meters has already largely been made, but significant performances drops here may have required rethinking this change. Luckily however, it seems that the change only improved matters. The BeamCal now operates more efficiently at low radii, and the Vertex Detector, while not performing any better, does not perform significantly worse either.
+                Overall, the increase in the length of the L* seems to have been mostly beneficial. Had the Vertex Detector Occupancy or BeamCal Efficiency suffered dramatically, the L* change may have required rethinking. Luckily though, the BeamCal now operates more efficiently at low radii, and the Vertex Detector, while not performing any better, does not perform significantly worse either.
 
 
             \subsection{Plug Region}
@@ -393,40 +402,60 @@
 
                 %beamcal
                 \begin{figure}[H] 
-                    \includegraphics[width=\textwidth]{RadialEfficiency_total_geom}
+                    \includegraphics[height=.4\textheight]{RadialEfficiency_total_geom}
                     \centering
-                    \caption{}
+                    \caption{Full plug region (Sidloi3-IR\_Realign) vs wedge cut-out plug region
+                            (Sidloi3-IR\_Realign\_wedge-cutout) vs circle cut-out plug region
+                            (Sidloi3-IR\_Realign\_circle-cutout). The efficiency decreases with 
+                            the more zealous cuts, especially at lower radii.}
                     \label{fig__geom_beamcal_total}
                 \end{figure}
                 \begin{figure}[H]
-                    \includegraphics[width=\textwidth]{RadialEfficiency_instrumental_geom}
+                    \includegraphics[height=.4\textheight]{RadialEfficiency_instrumental_geom}
                     \centering
-                    \caption{}
+                    \caption{Full plug region (Sidloi3-IR\_Realign) vs wedge cut-out plug region
+                            (Sidloi3-IR\_Realign\_wedge-cutout) vs circle cut-out plug region
+                            (Sidloi3-IR\_Realign\_circle-cutout). The instrumental efficiencies
+                            for all three designs are nearly identical.}
                     \label{fig__geom_beamcal_inst}
                 \end{figure}
                 \begin{figure}[H]
-                    \includegraphics[width=\textwidth]{RadialEfficiency_geometric_geom}
+                    \includegraphics[height=.4\textheight]{RadialEfficiency_geometric_geom}
                     \centering
-                    \caption{}
+                    \caption{Full plug region (Sidloi3-IR\_Realign) vs wedge cut-out plug region
+                            (Sidloi3-IR\_Realign\_wedge-cutout) vs circle cut-out plug region
+                            (Sidloi3-IR\_Realign\_circle-cutout). The efficiency decreases dramatically 
+                            with the more zealous cuts, especially at lower radii. Combined with the 
+                            previous figure's complete lack of difference between the designs, this figure
+                            indicates that the effiency changes are purely geometric in nature.}
                     \label{fig__geom_beamcal_geom}
                 \end{figure}
 
-                Obviously, if there is no detector material for a particle to interact with in some region, then the BeamCal will be completely unable to detect anything moving through that region. As expected then, removing part of the BeamCal causes massive drops in performance near the removed region, as visible in figure \ref{fig__geom_beamcal_total}. Additionally, the performance drop increases with the more liberal circular cutout. Since nothing altered the behaviour of particles or the BeamCal outside of the inner radii, the performance there is unchanged. The effect on the BeamCal is entirely geometric(\ref{fig__geom_beamcal_geom}), with no significant effects on the instrumental efficiency (\ref{fig__geom_beamcal_inst}).
+                Obviously, if there is no detector material for a particle to interact with in some region, then the BeamCal will be completely unable to detect anything moving through that region. As expected then, removing part of the BeamCal causes severe drops in efficiency near the removed region, as visible in figure \ref{fig__geom_beamcal_total}. Additionally, the performance drop increases with the more liberal circular cutout. Since nothing altered the behaviour of particles or the BeamCal outside of the inner radii, the performance there is unchanged. The effect on the BeamCal is entirely geometric(\ref{fig__geom_beamcal_geom}), with no significant effects on the instrumental efficiency (\ref{fig__geom_beamcal_inst}).
                 
                 %vertex
                 \begin{figure}[H] 
-                    \includegraphics[width=\textwidth]{VradOccupancy_plug_brl}
+                    \includegraphics[height=.4\textheight]{VradOccupancy_plug_brl}
                     \centering
-                    \caption{Vertex Barrel Plug Region}
+                    \caption{Full plug region (Sidloi3-IR\_Realign) vs wedge cut-out plug region
+                            (Sidloi3-IR\_Realign\_wedge-cutout) vs circle cut-out plug region
+                            (Sidloi3-IR\_Realign\_circle-cutout)  Vertex Barrel Occupancy. 
+                            The designs with the plug region removed show consistently lower
+                            occupancy than the full plug region.}
                     \label{fig__plug_vertex_brl}
                 \end{figure}
                 \begin{figure}[H] 
-                    \includegraphics[width=\textwidth]{VradOccupancy_plug_ecp}
+                    \includegraphics[height=.4\textheight]{VradOccupancy_plug_ecp}
                     \centering
-                    \caption{Vertex Endcap Plug Region}
+                    \caption{Full plug region (Sidloi3-IR\_Realign) vs wedge cut-out plug region
+                            (Sidloi3-IR\_Realign\_wedge-cutout) vs circle cut-out plug region
+                            (Sidloi3-IR\_Realign\_circle-cutout)  Vertex Barrel Occupancy. 
+                            The designs with the plug region removed show consistently lower
+                            occupancy than the full plug region, with the circle cut-out (which 
+                            removes the most area of the BeamCal) having the lowest occupancy.}
                     \label{fig__plug_vertex_ecp}
                 \end{figure}
-                The backscatter effect from the BeamCal into the Vertex Detector is dependent on there being something for the particles to scatter backwards off of. It makes perfect sense then, that removing material from the BeamCal would decrease the occupancy in the Vertex Detector, visible in figures \ref{fig__plug_vertex_brl} and \ref{fig__plug_vertex_ecp}, with the circle cutout resulting in even lower occupancy levels.
+                In contrast to the performance drops in the BeamCal, the Vertex Detector actually sees performance gains. The backscatter effect from the BeamCal into the Vertex Detector is dependent on there being something for the particles to be emitted from. It makes perfect sense then, that removing material from the BeamCal would decrease the occupancy in the Vertex Detector, visible in figures \ref{fig__plug_vertex_brl} and \ref{fig__plug_vertex_ecp}, with the wedge cutout resulting in significant improvements to occupancy levels, and the larger circle cutout resulting in even lower occupancy levels.
                 
 
                 %conclusion
@@ -438,21 +467,30 @@
 
                 %beamcal
                 \begin{figure}[H] 
-                    \includegraphics[width=\textwidth]{RadialEfficiency_total_did}
+                    \includegraphics[height=.4\textheight]{RadialEfficiency_total_did}
                     \centering
-                    \caption{}
+                    \caption{No anti-DiD field (Sidloi3-IR\_Realign) vs with anti-DiD field 
+                            (Sidloi3-IR\_Realign\_anti-did). Both designs use the 4.1 meter L*
+                            and the full plug region. Here, the design which includes the anti-DiD
+                            field slightly outperforms the design without.}
                     \label{fig__did_beamcal_total}
                 \end{figure}
                 \begin{figure}[H]
-                    \includegraphics[width=\textwidth]{RadialEfficiency_instrumental_did}
+                    \includegraphics[height=.4\textheight]{RadialEfficiency_instrumental_did}
                     \centering
-                    \caption{}
+                    \caption{No anti-DiD field (Sidloi3-IR\_Realign) vs with anti-DiD field 
+                            (Sidloi3-IR\_Realign\_anti-did). Both designs use the 4.1 meter L*
+                            and the full plug region. It is apparent from this plot that the
+                            improvements from the anti-DiD field are entirely instrumental.}
                     \label{fig__did_beamcal_inst}
                 \end{figure}
                 \begin{figure}[H]
-                    \includegraphics[width=\textwidth]{RadialEfficiency_geometric_did}
+                    \includegraphics[height=.4\textheight]{RadialEfficiency_geometric_did}
                     \centering
-                    \caption{}
+                    \caption{No anti-DiD field (Sidloi3-IR\_Realign) vs with anti-DiD field 
+                            (Sidloi3-IR\_Realign\_anti-did). Both designs use the 4.1 meter L*
+                            and the full plug region. The two designs display identical efficiencies,
+                            showing that the effect of the anti-DiD field is entirely instrumental.}
                     \label{fig__did_beamcal_geom}
                 \end{figure}
 
@@ -460,26 +498,32 @@
 
                 %vertex
                 \begin{figure}[H] 
-                    \includegraphics[width=\textwidth]{VradOccupancy_base_brl}
+                    \includegraphics[height=.4\textheight]{VradOccupancy_base_brl}
                     \centering
-                    \caption{Vertex Barrel Plug Region}
+                    \caption{No anti-DiD field (Sidloi3-IR\_Realign) vs with anti-DiD field 
+                            (Sidloi3-IR\_Realign\_anti-did) Vertex Barrel Occupancy. Both designs use the 4.1 meter L*
+                            and the full plug region. The design which uses the anti-DiD field shows moderately lower occupancy 
+                            than the design without.}
                     \label{fig__did_vertex_brl}
                 \end{figure}
                 \begin{figure}[H] 
-                    \includegraphics[width=\textwidth]{VradOccupancy_base_ecp}
+                    \includegraphics[height=.4\textheight]{VradOccupancy_base_ecp}
                     \centering
-                    \caption{Vertex Endcap Plug Region}
+                    \caption{No anti-DiD field (Sidloi3-IR\_Realign) vs with anti-DiD field 
+                            (Sidloi3-IR\_Realign\_anti-did) Vertex Barrel Occupancy. Both designs use the 4.1 meter L*
+                            and the full plug region. The design which uses the anti-DiD field shows consistently lower occupancy 
+                            than the design without at all radii.}
                     \label{fig__did_vertex_ecp}
                 \end{figure}
 
-                Figures \ref{fig__did_vertex_brl} and \ref{fig__did_vertex_ecp} show that the anti-DiD field reduces the occupancy levels in both the barrel and endcap of the Vertex Detector. Just as with the BeamCal tagging efficiency, this improvement results from background particles being sent down the outgoing beam pipe. Because a large number of particles now miss the BeamCal, the albedo is reduced, improving occupancy.
+                Similarly to the BeamCal, the Vertex Detector also benefits from the presence of the anti-DiD field. Figures \ref{fig__did_vertex_brl} and \ref{fig__did_vertex_ecp} show that the anti-DiD field reduces the occupancy levels in both the barrel and endcap of the Vertex Detector. Just as with the BeamCal tagging efficiency, this improvement results from background particles being sent down the outgoing beam pipe. Because a large number of particles now miss the BeamCal, the albedo is reduced, improving occupancy.
 
                 %Conclusion
-                The anti-DiD field certainly accomplishes its intended goal, by improving performance in both the BeamCal and Vertex Detector. However, the BeamCal and Vertex Detector are not the only considerations for the anti-DiD field. While the anti-Did may be intended for only these two detectors, the field can cause problems with various other parts of the SiD. Moreover, the anti-DiD is very expensive, costing on the order of millions of dollars (US). For these reasons, the marginal improvements to the BeamCal and Vertex detector are not worth the costs of installing the anti-DiD field. The conclusion of this study and the SiD collaboration as a whole then is that the anti-Did field will \textbf{not} be included in the final design of the SiD.
+                The anti-DiD field certainly accomplishes its intended goal, by improving performance in both the BeamCal and Vertex Detector. However, the BeamCal and Vertex Detector are not the only considerations for the anti-DiD field. Most notably, the anti-DiD is very expensive, costing on the order of millions of dollars (US). As such, the marginal improvements to the BeamCal and Vertex detector are not worth the hefty cost of installing the anti-DiD field. The conclusion of this study and the SiD collaboration as a whole then is that the anti-Did field will \textbf{not} be included in the final design of the SiD.
 
 
         \section{Conclusion}
-            To summarize, the L* change, with its corresponding change to the BeamCal's distance from the IP, had a very limited, but positive, effect on the performance of both the BeamCal and Vertex Detector. The BeamCal plug region modifications produced inverse results in the BeamCal and Vertex Detector; the performance of the BeamCal suffered substantially as more of the device was cut away, while the Vertex Detector's performance improved. Due to the ad-hoc nature of the studies performed on the BeamCal, the results of this test will require further study in the future. The final alteration, the anti-DiD field, marginally improved the performance in both detectors. However, the expected cost of the anti-DiD field, as well as its detrimental effects in other parts of the SiD, means that the small gains in the BeamCal and Vertex Detector are not worth the investment needed for the anti-DiD field.
+            To summarize, the L* change, with its corresponding change to the BeamCal's distance from the IP, had a very limited, but positive, effect on the performance of both the BeamCal and Vertex Detector. The BeamCal plug region modifications produced inverse results in the BeamCal and Vertex Detector; the performance of the BeamCal suffered substantially as more of the device was cut away, while the Vertex Detector's performance improved. Due to the ad-hoc nature of the studies performed on the BeamCal, the results of this test will require further study in the future. The final alteration, the anti-DiD field, marginally improved the performance in both detectors. However, the expected cost of the anti-DiD field means that the small gains in the BeamCal and Vertex Detector are not worth the investment needed for the anti-DiD field.
 
 
 
